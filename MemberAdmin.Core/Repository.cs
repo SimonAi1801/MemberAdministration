@@ -9,7 +9,7 @@ namespace MemberAdmin.Core
 {
     public class Repository
     {
-        private const string _fileName = "members.csv";
+        private const string _fileName = "member.csv";
 
         private static Repository _instance;
 
