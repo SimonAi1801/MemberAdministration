@@ -15,10 +15,18 @@ namespace MemberAdmin.Core
 
         List<Person> _members;
 
-        public Repository()
+        private Repository()
         {
             _members = new List<Person>();
             LoadFromCsv();
+        }
+
+        public static Repository GetInstance()
+        {
+            if (_instance == null)
+                _instance = new Repository();
+
+            return _instance;
         }
 
         private void LoadFromCsv()

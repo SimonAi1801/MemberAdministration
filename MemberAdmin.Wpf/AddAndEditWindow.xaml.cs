@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MemberAdmin.Core;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -17,9 +18,11 @@ namespace MemberAdmin.Wpf
     /// </summary>
     public partial class AddAndEditWindow : Window
     {
-        public AddAndEditWindow()
+        private Person _person;
+        public AddAndEditWindow(Person person)
         {
             InitializeComponent();
+            _person = person;
         }
     }
 }

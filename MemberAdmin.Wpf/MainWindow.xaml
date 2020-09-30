@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MemberAdmin.Wpf"
         mc:Ignorable="d"
-        Title="Mitglieder Verwwaltung" Height="450" Width="800">
+        Title="Mitglieder Verwwaltung" Height="350" Width="750" MinWidth="750" MinHeight="300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -22,7 +22,7 @@
                         <GridViewColumn Header="Nachname" Width="150" DisplayMemberBinding="{Binding Path=LastName}"/>
                         <GridViewColumn Header="Ganzname" Width="200" DisplayMemberBinding="{Binding Path=FullName}"/>
                         <GridViewColumn Header="Geburtstag" Width="150" DisplayMemberBinding="{Binding Path=Birthday}"/>
-                        <GridViewColumn Header="Gurt" Width="150" DisplayMemberBinding="{Binding Path=Belt}"/>
+                        <GridViewColumn Header="Gurt" Width="100" DisplayMemberBinding="{Binding Path=Belt}"/>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
