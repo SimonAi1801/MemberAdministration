@@ -41,7 +41,6 @@ namespace MemberAdmin.Wpf
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
             _repo.Remove(lBoxMembers.SelectedItem as Person);
-
             lBoxMembers.ItemsSource = _repo.GetAll();
         }
 

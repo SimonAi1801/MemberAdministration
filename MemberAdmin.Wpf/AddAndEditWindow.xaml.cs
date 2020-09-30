@@ -19,10 +19,48 @@ namespace MemberAdmin.Wpf
     public partial class AddAndEditWindow : Window
     {
         private Person _person;
+        private Repository _repo;
         public AddAndEditWindow(Person person)
         {
             InitializeComponent();
+            Loaded += AddAndEditWindow_Loaded;
             _person = person;
+        }
+
+        private void AddAndEditWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            btnSave.Click += BtnSave_Click;
+            btnCancle.Click += BtnCancle_Click;
+            _repo = Repository.GetInstance();
+
+            if (_person == null)
+            {
+                DataContext = new Person
+                {
+                    FirstName = "Bitte Vornamen eingeben!",
+                    LastName = "Bitte Nachnamen eingeben!",
+                    BirthDate = Convert.ToDateTime("01.01.2000"),
+                    Belt = "Bitte Gurt eingeben!"
+                };
+            }
+            else
+            {
+                DataContext = _person;
+            }
+        }
+
+        private void BtnCancle_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            if (_person == null)
+            {
+                _repo.Add(DataContext as Person);
+            }
+            Close();
         }
     }
 }
