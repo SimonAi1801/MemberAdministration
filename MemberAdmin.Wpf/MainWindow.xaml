@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MemberAdmin.Wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Mitglieder Verwwaltung" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Margin="0,10,0,10" HorizontalAlignment="Center" Text="Mitglieder Verwaltung" FontSize="20"/>
 
+        <ListView Grid.Row="1" x:Name="lBoxMembers">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Vorname" Width="150" DisplayMemberBinding="{Binding Path=FirstName}"/>
+                        <GridViewColumn Header="Nachname" Width="150" DisplayMemberBinding="{Binding Path=LastName}"/>
+                        <GridViewColumn Header="Ganzname" Width="200" DisplayMemberBinding="{Binding Path=FullName}"/>
+                        <GridViewColumn Header="Geburtstag" Width="150" DisplayMemberBinding="{Binding Path=Birthday}"/>
+                        <GridViewColumn Header="Gurt" Width="150" DisplayMemberBinding="{Binding Path=Belt}"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <UniformGrid Grid.Row="2" Columns="4">
+            <Button Margin="10,10,10,10" Content="Neu" x:Name="btnNew"/>
+            <Button Margin="10,10,10,10" Content="Löschen" x:Name="btnDelete"/>
+            <Button Margin="10,10,10,10" Content="Bearbeiten" x:Name="btnEdit"/>
+            <Button Margin="10,10,10,10" Content="Abbrechen" x:Name="btnCancle"/>
+        </UniformGrid>
     </Grid>
 </Window>
