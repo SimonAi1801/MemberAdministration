@@ -1,5 +1,6 @@
 ﻿using MemberAdmin.Core;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,12 +31,12 @@ namespace MemberAdmin.Wpf
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            _repo = Repository.GetInstance();
             btnNew.Click += BtnNew_Click;
             btnEdit.Click += BtnEdit_Click;
             btnCancle.Click += BtnCancle_Click;
             btnDelete.Click += BtnDelete_Click;
-            _repo = Repository.GetInstance();
-            lBoxMembers.ItemsSource = _repo.GetAll();
+            lBoxMembers.ItemsSource = Refresh();
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
@@ -47,7 +48,7 @@ namespace MemberAdmin.Wpf
             else
             {
                 _repo.Remove(lBoxMembers.SelectedItem as Person);
-                lBoxMembers.ItemsSource = _repo.GetAll();
+                lBoxMembers.ItemsSource = Refresh();
             }
         }
 
@@ -67,7 +68,7 @@ namespace MemberAdmin.Wpf
             {
                 AddAndEditWindow addAndEdit = new AddAndEditWindow(lBoxMembers.SelectedItem as Person);
                 addAndEdit.ShowDialog();
-                lBoxMembers.ItemsSource = _repo.GetAll();
+                lBoxMembers.ItemsSource = Refresh();
             }
         }
 
@@ -75,8 +76,11 @@ namespace MemberAdmin.Wpf
         {
             AddAndEditWindow addAndEdit = new AddAndEditWindow(null);
             addAndEdit.ShowDialog();
-            lBoxMembers.ItemsSource = _repo.GetAll();
+            lBoxMembers.ItemsSource = Refresh();
 
         }
+
+        private IEnumerable Refresh()
+        => _repo.GetAll();
     }
 }
