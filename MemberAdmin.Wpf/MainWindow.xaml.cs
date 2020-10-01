@@ -40,8 +40,15 @@ namespace MemberAdmin.Wpf
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            _repo.Remove(lBoxMembers.SelectedItem as Person);
-            lBoxMembers.ItemsSource = _repo.GetAll();
+            if (lBoxMembers.SelectedItem == null)
+            {
+                MessageBox.Show("Sie haben kein Mitglied ausgewählt!");
+            }
+            else
+            {
+                _repo.Remove(lBoxMembers.SelectedItem as Person);
+                lBoxMembers.ItemsSource = _repo.GetAll();
+            }
         }
 
         private void BtnCancle_Click(object sender, RoutedEventArgs e)
@@ -50,10 +57,18 @@ namespace MemberAdmin.Wpf
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
+
         {
-            AddAndEditWindow addAndEdit = new AddAndEditWindow(lBoxMembers.SelectedItem as Person);
-            addAndEdit.ShowDialog();
-            lBoxMembers.ItemsSource = _repo.GetAll();
+            if (lBoxMembers.SelectedItem == null)
+            {
+                MessageBox.Show("Sie haben kein Mitglied ausgewählt!");
+            }
+            else
+            {
+                AddAndEditWindow addAndEdit = new AddAndEditWindow(lBoxMembers.SelectedItem as Person);
+                addAndEdit.ShowDialog();
+                lBoxMembers.ItemsSource = _repo.GetAll();
+            }
         }
 
         private void BtnNew_Click(object sender, RoutedEventArgs e)

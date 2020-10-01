@@ -21,7 +21,7 @@
                         <GridViewColumn Header="Vorname" Width="150" DisplayMemberBinding="{Binding Path=FirstName}"/>
                         <GridViewColumn Header="Nachname" Width="150" DisplayMemberBinding="{Binding Path=LastName}"/>
                         <GridViewColumn Header="Ganzname" Width="200" DisplayMemberBinding="{Binding Path=FullName}"/>
-                        <GridViewColumn Header="Geburtstag" Width="150" DisplayMemberBinding="{Binding Path=Birthday}"/>
+                        <GridViewColumn Header="Geburtstag" Width="150" DisplayMemberBinding="{Binding Path=BirthDate}"/>
                         <GridViewColumn Header="Gurt" Width="100" DisplayMemberBinding="{Binding Path=Belt}"/>
                     </GridView.Columns>
                 </GridView>
