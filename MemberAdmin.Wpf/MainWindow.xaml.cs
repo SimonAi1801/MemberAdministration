@@ -1,4 +1,5 @@
-﻿using MemberAdmin.Core;
+﻿using MahApps.Metro.Controls;
+using MemberAdmin.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace MemberAdmin.Wpf
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         private Repository _repo;
         public MainWindow()

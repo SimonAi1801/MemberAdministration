@@ -4,6 +4,53 @@
              xmlns:local="clr-namespace:MemberAdmin.Wpf"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="StyleWindow">
+                <Setter Property="Control.Background" Value="Gray"/>
+            </Style>
+
+            <Style x:Key="TitleColor">
+                <Setter Property="Control.Foreground" Value="WhiteSmoke"/>
+            </Style>
+
+            <Style TargetType="ListView">
+                <Setter Property="Background" Value="WhiteSmoke"/>
+            </Style>
+
+            <Style TargetType="ListViewItem">
+                <Setter Property="Foreground" Value="Black"/>
+            </Style>
+
+            <Style x:Key="btnAdd" >
+                <Style.Triggers>
+                    <Trigger Property="Button.IsMouseOver" Value="True">
+                        <Setter Property="Control.Background" Value="Green"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="FontStyle" Value="Normal"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Style.Triggers>
+                    <MultiTrigger>
+                        <MultiTrigger.Conditions>
+                            <Condition Property="Button.IsMouseOver" Value="True"/>
+                            <Condition Property="Button.Content" Value="Speichern"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </MultiTrigger>
+                </Style.Triggers>
+            </Style>
+            
+          
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

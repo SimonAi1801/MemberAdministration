@@ -1,4 +1,5 @@
-﻿using MemberAdmin.Core;
+﻿using MahApps.Metro.Controls;
+using MemberAdmin.Core;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +17,7 @@ namespace MemberAdmin.Wpf
     /// <summary>
     /// Interaction logic for AddAndEditWindow.xaml
     /// </summary>
-    public partial class AddAndEditWindow : Window
+    public partial class AddAndEditWindow : MetroWindow
     {
         private Person _person;
         private Repository _repo;
